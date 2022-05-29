@@ -1,0 +1,23 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.primary {
+  background-color: #82a585;
+  color: white;
+}
+.secondary {
+  background-color: #436252;
+  color: white;
+}
