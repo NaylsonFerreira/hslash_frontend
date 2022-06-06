@@ -1,3 +1,4 @@
+import UserModel from "../models/user";
 import { http } from "./http"
 
 
@@ -20,8 +21,10 @@ const authService = {
     },
     getMe: async () => {
         return http.get('auth/me').then(response => {
-            console.log(response);
-            localStorage.setItem('user', JSON.stringify(response))
+            const user = new UserModel();
+            const userJson = user.fromJSON(response);
+            localStorage.setItem('user', JSON.stringify(userJson))
+            return user;
         })
     }
 }

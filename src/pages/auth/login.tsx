@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Button } from '../../components/Button';
-import { Container } from '../../components/Container';
-import { Form } from '../../components/Form';
-import { Header1 } from '../../components/Header1';
-import { Input } from '../../components/Input';
-import authService from '../../services/auth';
+import { useState } from "react";
+import { Form } from "../../components/Form";
+import { Header1 } from "../../components/Header1";
+import authService from "../../services/auth";
+import { Button, TextField, Container } from "@mui/material";
+import LinearProgress from "@mui/material/LinearProgress";
+
 
 const Login = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const handleSubmit = async () => {
         setLoading(true);
@@ -17,12 +17,34 @@ const Login = () => {
     }
 
     return (
-        <Container>
+        <Container maxWidth="sm">
             <Form>
-                <Header1 className='secondary' >Hslash</Header1>
-                <Input label="Email" defaultValue={email} onChange={(value) => setEmail(`${value}`)} />
-                <Input label="Password" defaultValue={password} onChange={(value) => setPassword(`${value}`)} />
-                <Button className="primary" disabled={loading} onClick={() => handleSubmit()} >Entrar</Button>
+                {loading && <LinearProgress className='fluid' />}
+                <Header1>Login</Header1>
+                <TextField
+                    className='field'
+                    variant="outlined"
+                    label="Email"
+                    defaultValue={email}
+                    onChange={(value) => setEmail(`${value}`)}
+                />
+                <TextField
+                    className='field'
+                    variant="outlined"
+                    label="Password"
+                    defaultValue={password}
+                    onChange={(value) => setPassword(`${value}`)}
+                />
+                <Button
+                    className='field'
+                    variant="contained"
+                    disabled={loading}
+                    onClick={() => handleSubmit()}
+                    size="large"
+                >
+                    Entrar
+                </Button>
+
             </Form>
         </Container>
     );

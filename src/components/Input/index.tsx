@@ -1,27 +1,23 @@
-import { Main } from "./style";
+import { BaseTextFieldProps, TextField } from "@mui/material";
 
-type Props = {
-    type?: string;
-    label: string,
-    defaultValue?: string,
-    onChange?: (value: string | number) => void,
+interface Props extends BaseTextFieldProps {
+    onChange: (id: string) => void
 }
 
 export const Input = ({
-    label = '',
-    defaultValue = '',
-    type = "text",
-    onChange = (value) => console.log(value)
+    className = "fluid",
+    variant = "outlined",
+    onChange,
+    ...props
 }: Props) => {
+
     return (
-        <Main>
-            {label != '' && (<label>{label}</label>)}
-            <input
-                type={type}
-                defaultValue={defaultValue}
-                onChange={(e) => onChange(e.target.value)}
-            />
-        </Main>
+        <TextField
+            className={className}
+            variant={variant}
+            onChange={(e) => onChange(e.target.value)}
+            {...props}
+        />
     );
 };
 

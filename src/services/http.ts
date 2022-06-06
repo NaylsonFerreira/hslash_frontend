@@ -13,10 +13,10 @@ const api = async (resource: string, method: string = 'GET', queryParams?: Query
     let query = ''
 
     if (queryParams) {
-        query = `${Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')}`
+        query = `${Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')}`        
     }
 
-    const url = `${baseUrl}/${resource}/?${query}`;
+    const url = `${baseUrl}/${resource}/?${query}`;    
     const token = localStorage.getItem('token')
 
     const headers = {

@@ -1,9 +1,9 @@
-import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
-import { Container } from '../../components/Container'
-import { Table } from '../../components/Table'
-import { User } from '../../models/user'
-import userService from '../../services/user'
+import type { NextPage } from "next"
+import { useEffect, useState } from "react"
+import { Container } from "../../components/Container"
+import { Table } from "../../components/Table"
+import { User } from "../../models/user"
+import userService from "../../services/user"
 
 const Home: NextPage = () => {
   const [users, setUsers] = useState<User[]>([])

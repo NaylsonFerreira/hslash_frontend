@@ -6,5 +6,8 @@ export const Main = styled.div`
     align-items: center;
     justify-content: center;
     padding: 20px;
-    height: 100%;
+    .field {
+        width: 100%;
+        margin: 15px 0px;
+    }
 `;

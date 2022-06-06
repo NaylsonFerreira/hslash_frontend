@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-    width: 100%;
     background-color: #f5f5f5;
     text-align: center;
-    table {
-        width: 100%;
-        border-collapse: collapse;
+    margin: 10px;
+    border: none;
+    table {        
         tr{
             :nth-child(odd) {
                 background-color: #ffffff; 
@@ -15,12 +14,12 @@ export const Main = styled.div`
                 background-color: #f8f8f8; 
             }
         }
-        thead tr td {
+        thead tr th {
             background-color: #f8f8f8;            
         }
-        td {
+        td, th {
             padding: 5px;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #e5e5e5
         }
     }
 `

@@ -24,7 +24,16 @@ export const Categories = styled.div`
 `
 
 export const Cart = styled.div`
-    width: 50%;
-    display: flex;
+    width: 60%;
+    padding: 10px;
     border: 1px solid #ccc;
+    div {
+        width: 100%;    
+    }
+`
+
+export const SearchBox = styled.div`
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
 `
