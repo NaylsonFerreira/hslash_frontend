@@ -1,6 +1,6 @@
-import { Avatar, Divider, ListItem, ListItemText, ListItemAvatar } from "@mui/material";
-import { ReactNode } from "react";
-import { ListMain, ItemBox } from "./style";
+import { Avatar, Divider, ListItem, ListItemText, ListItemAvatar } from '@mui/material';
+import { ReactNode } from 'react';
+import { ListMain, ItemBox } from './style';
 
 
 export type ItemListType = {
@@ -19,11 +19,11 @@ type Props = {
 
 const ItemTemplate: ItemListType = {
     id: 1,
-    imageUrl: "https://m.media-amazon.com/images/I/51eulL9aN2L._AC_SY450_.jpg",
-    imageAlt: "imageAlt",
-    title: "Title",
-    description: "Description",
-    secondary: "Secondary"
+    imageUrl: 'https://m.media-amazon.com/images/I/51eulL9aN2L._AC_SY450_.jpg',
+    imageAlt: 'imageAlt',
+    title: 'Title',
+    description: 'Description',
+    secondary: 'Secondary'
 }
 
 export const List = ({

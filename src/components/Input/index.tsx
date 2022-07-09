@@ -1,12 +1,12 @@
-import { BaseTextFieldProps, TextField } from "@mui/material";
+import { BaseTextFieldProps, TextField } from '@mui/material';
 
 interface Props extends BaseTextFieldProps {
     onChange: (id: string) => void
 }
 
 export const Input = ({
-    className = "fluid",
-    variant = "outlined",
+    className = 'fluid',
+    variant = 'outlined',
     onChange,
     ...props
 }: Props) => {

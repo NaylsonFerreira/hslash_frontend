@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 type Props = {
     backgroundColor?: string
@@ -6,6 +6,6 @@ type Props = {
 }
 
 export const Main = styled.h1<Props>`
-    color: ${props => props.color || "#000"};
-    background-color: ${props => props.backgroundColor || "#fff"};
+    color: ${props => props.color || '#000'};
+    background-color: ${props => props.backgroundColor || '#fff'};
 `

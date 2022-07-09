@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { Main } from "./style";
+import { ReactNode } from 'react';
+import { Main } from './style';
 
 type Props = {
     children: ReactNode;

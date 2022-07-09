@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Form } from "../../components/Form";
-import { Header1 } from "../../components/Header1";
-import authService from "../../services/auth";
-import { Button, TextField, Container } from "@mui/material";
-import LinearProgress from "@mui/material/LinearProgress";
+import { useState } from 'react';
+import { Form } from '../../components/Form';
+import { Header1 } from '../../components/Header1';
+import authService from '../../services/auth';
+import { Button, TextField, Container } from '@mui/material';
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 const Login = () => {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const handleSubmit = async () => {
         setLoading(true);

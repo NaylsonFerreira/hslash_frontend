@@ -1,6 +1,6 @@
-import { useTheme } from "@mui/material/styles";
-import { ReactNode } from "react";
-import { Main } from "./style";
+import { useTheme } from '@mui/material/styles';
+import { ReactNode } from 'react';
+import { Main } from './style';
 
 
 type Props = {
