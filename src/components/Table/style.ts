@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Main = styled.div`
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5;
     text-align: center;
     margin: 10px;
     border: none;
@@ -21,5 +21,5 @@ export const Main = styled.div`
             padding: 5px;
             border: 1px solid #e5e5e5
         }
-    }
+    } */
 `

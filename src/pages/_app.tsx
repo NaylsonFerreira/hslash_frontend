@@ -1,7 +1,8 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import Head from 'next/head'
+import Script from 'next/script'
+import GlobalStyle from '../styles/globalstyles';
 
 
 const theme = createTheme({
@@ -22,11 +23,21 @@ const theme = createTheme({
 });
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
+  const semanticUI = 'https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css'
   return <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <Component {...pageProps} theme={theme} />
+    <Script id='jquery' src="scripts/jquery.min.js" />
+    <Script id='semantic' src="scripts/semantic.min.js" />
+    <GlobalStyle />
+    <Head>
+      <title>Auto4Doc</title>
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="stylesheet" type="text/css" href={semanticUI} />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
+    </Head>
+    <Component {...pageProps} />
   </ThemeProvider>
 }
 
-export default MyApp
+export default App

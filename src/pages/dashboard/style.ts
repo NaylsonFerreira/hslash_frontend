@@ -1,39 +1,22 @@
 import styled from 'styled-components';
 
-export const MenuTop = styled.div`
-    width: 100%;
-    height: 50px;
-    display: flex;
-    background-color: blue;
-`
-
 export const Main = styled.div`
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    border: 1px solid #ccc;
-    align-items: center;
-    justify-content: space-between;
 `
 
-export const Categories = styled.div`
-    display: flex;
-    width: 40%;
-    background-color: red;
-`
-
-export const Cart = styled.div`
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    div {
-        width: 100%;    
-    }
-`
-
-export const SearchBox = styled.div`
+export const BoxContainer = styled.div`
     width: 100%;
-    max-height: 200px;
+    display: flex;
+`
+
+export const BoxRight = styled.div`
+    width: 100%;
+    padding: 10px;
+    height: 1200px;
     overflow-y: auto;
+    overflow-x: hidden;
+`
+
+export const BoxLeft = styled.div`
+    padding: 10px;
 `
