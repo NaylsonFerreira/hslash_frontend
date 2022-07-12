@@ -30,7 +30,7 @@ function App({ Component, pageProps }: AppProps) {
     <Script id='semantic' src="scripts/semantic.min.js" />
     <GlobalStyle />
     <Head>
-      <title>Auto4Doc</title>
+      <title>Hslash</title>
       <link rel="icon" href="/favicon.ico" />
       <link rel="stylesheet" type="text/css" href={semanticUI} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,12 +1,11 @@
+import { APIService } from '../models/api';
 import ProductModel from '../models/product';
 import { http } from './http';
 
-export const productService = {
-    getAll: async () => {
-        return http.get('products').then(res => res).catch(() => null);
-    },
-    getById: async (id: number | string) => {
-        return http.get(`products/${id}`).then(res => res).catch(() => null);
+export const productService: APIService = {
+    getList: async (query) => {
+        const response = await http.get('products', query);
+        return response
     },
     search: async (query: string) => {
         return http.get('products', { search: `${query}` })

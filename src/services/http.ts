@@ -1,22 +1,24 @@
-type QueryParams = {
-    [key: string]: string | number;
-};
+import { APIQuery, defaultQuery } from '../models/api';
 
 type Body = {
     [key: string]: string | number | boolean;
 };
 
+const buildParams = (query: APIQuery = defaultQuery): string => {
+    const { params } = query
+    let res: string = ''
+    if (params) {
+        res = `${Object.keys(params).map(key => `${key}=${params[`${key}`]}`).join('&')}`
+    }
+    return ''
+}
+
 const baseUrl = `${process.env.NEXT_PUBLIC_API_HOST}`
 
-const api = async (resource: string, method: string = 'GET', queryParams?: QueryParams, body?: Body) => {
+const api = async (resource: string, method: string = 'GET', query?: APIQuery, body?: Body) => {
 
-    let query = ''
-
-    if (queryParams) {
-        query = `${Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')}`        
-    }
-
-    const url = `${baseUrl}/${resource}/?${query}`;    
+    const queryParams = buildParams(query)
+    const url = `${baseUrl}/${resource}/?${queryParams}`;
     const token = localStorage.getItem('token')
 
     const headers = {
@@ -24,7 +26,7 @@ const api = async (resource: string, method: string = 'GET', queryParams?: Query
         Authorization: `Token ${token}`
     } as HeadersInit;
 
-    return fetch(`${url}`, {
+    const reponse = await fetch(`${url}`, {
         method,
         headers: headers,
         body: body ? JSON.stringify(body) : undefined
@@ -39,11 +41,13 @@ const api = async (resource: string, method: string = 'GET', queryParams?: Query
         .catch(err => {
             console.log(err);
         });
+
+    return reponse
 }
 
 
 export const http = {
-    get: async (resource: string, query?: any) => api(`${resource}`, 'GET', query),
+    get: async (resource: string, query?: APIQuery) => api(`${resource}`, 'GET', query),
     post: async (resource: string, body?: any) => api(`${resource}`, 'POST', undefined, body),
     put: async (resource: string, body?: any) => api(`${resource}`, 'PUT', undefined, body),
     delete: async (resource: string) => api(`${resource}`, 'DELETE')

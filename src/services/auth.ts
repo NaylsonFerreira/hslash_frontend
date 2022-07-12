@@ -1,5 +1,5 @@
-import UserModel from "../models/user";
-import { http } from "./http"
+import UserModel from '../models/user';
+import { http } from './http'
 
 
 const authService = {

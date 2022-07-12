@@ -1,6 +1,6 @@
-import authService from "../services/auth";
-import BaseModel from "./base";
-import UserModel from "./user";
+import authService from '../services/auth';
+import BaseModel from './base';
+import UserModel from './user';
 
 
 export class TransactionModel extends BaseModel {

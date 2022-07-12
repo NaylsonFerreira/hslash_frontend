@@ -6,6 +6,7 @@ export const Main = styled.div`
 
 export const BoxContainer = styled.div`
     width: 100%;
+    margin-top: 20px;
     display: flex;
 `
 

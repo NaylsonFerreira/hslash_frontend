@@ -1,11 +1,13 @@
-import { http } from "./http";
+import { APIResponse, APIService } from '../models/api';
+import { http } from './http';
 
-const userService = {
-    getAllUsers: async () => {
-        return http.get('users');
+const userService: APIService = {
+    getList: async (query) => {
+        const response = await http.get('users', query);
+        return response as APIResponse;
     },
-    getUserById: async (id: number) => {
-        return http.get(`users/${id}`);
+    search: function (query: string): {} {
+        throw new Error('Function not implemented.');
     }
 }
 

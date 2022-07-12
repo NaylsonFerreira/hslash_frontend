@@ -1,15 +1,14 @@
-import CartModel from "../models/cart";
-import TransactionModel from "../models/transation";
-import { http } from "./http";
-import transactionService from "./transaction";
+import { APIResponse } from '../models/api';
+import CartModel from '../models/cart';
+import { http } from './http';
+import transactionService from './transaction';
 
 const cartService = {
     getLastCart: async () => {
         const transaction = await transactionService.getLastOpenTransaction();
         if (transaction?.id) {
-            return http.get('itemCart', { transaction: transaction.id })
-                .then(res => res.map((r: any) => CartModel.create(r)))
-                .catch(() => []);
+            const { results = [] }: APIResponse = await http.get('itemCart', { transaction: transaction.id })
+            return results.map((r: any) => CartModel.create(r))
         } else {
             return [];
         }

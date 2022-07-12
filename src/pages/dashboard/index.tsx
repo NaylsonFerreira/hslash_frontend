@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Container } from '../../components/Container';
+import { APIResponse } from '../../models/api';
 import MenuLeft from '../../patterns/MenuLeft';
 import MenuTop from '../../patterns/MenuTop';
 import productService from '../../services/product';
@@ -6,10 +8,11 @@ import { BoxContainer, BoxLeft, BoxRight, Main } from './style';
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<any[]>([]);
 
-    const getProducts = useMemo(() => {
-        productService.getAll().then(u => setProducts(u))
+    const getProducts = useMemo(async () => {
+        const { results = [] }: APIResponse = await productService.getList()
+        setProducts(results)
     }, [])
 
     useEffect(() => {
@@ -17,7 +20,7 @@ const Dashboard = () => {
     }, [getProducts])
 
 
-    return <Main>
+    return <Container>
         <MenuTop />
         <BoxContainer>
             <BoxLeft>
@@ -48,7 +51,6 @@ const Dashboard = () => {
                 </div>
             </BoxRight>
         </BoxContainer>
-
-    </Main>
+    </Container>
 }
 export default Dashboard;

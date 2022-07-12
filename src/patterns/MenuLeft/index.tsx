@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
+import { APIResponse } from '../../models/api';
 import tagService from '../../services/tag';
 import { Main } from './style';
 
 export default function MenuLeft() {
-    const [tags, setTags] = useState([]);
+    const [tags, setTags] = useState<any[]>([]);
 
-    const getTags = useMemo(() => {
-        tagService.getAll().then(u => setTags(u))
+    const getTags = useMemo(async () => {
+        const { results = [] }: APIResponse = await tagService.getList()
+        setTags(results)
     }, [])
 
     useEffect(() => {
